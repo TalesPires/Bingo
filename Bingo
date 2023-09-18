@@ -1,3 +1,5 @@
+package Dados.pilhas.Bingo;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -113,4 +115,26 @@ public class Bingo {
                 .sorted((entry1, entry2) -> entry2.getValue().size() - entry1.getValue().size())
                 .forEach(entry -> System.out.println(entry.getKey() + ": " + entry.getValue().toString()));
     }
+    public boolean verificarVencedor(String jogador) {
+        for (Cartela cartela : cartelas) {
+            if (cartela.getJogador().equals(jogador)) {
+                List<Integer> numerosCartela = cartela.getNumeros();
+                boolean venceu = true;
+
+                // Verificar se todos os números da cartela foram sorteados
+                for (int numero : numerosCartela) {
+                    if (!numerosSorteados.contains(numero)) {
+                        venceu = false;
+                        break;
+                    }
+                }
+
+                if (venceu) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
+
