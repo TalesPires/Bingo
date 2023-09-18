@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+
+public class Cartela {
+    private String jogador;
+    private List<Integer> numeros;
+
+    public Cartela(String jogador) {
+        this.jogador = jogador;
+        this.numeros = gerarNumerosAleatorios();
+    }
+
+    public String getJogador() {
+        return jogador;
+    }
+
+    public List<Integer> getNumeros() {
+        return numeros;
+    }
+
+    public boolean contemNumero(int numero) {
+        return numeros.contains(numero);
+    }
+
+    private List<Integer> gerarNumerosAleatorios() {
+        Set<Integer> numerosSet = new HashSet<>();
+        Random random = new Random();
+
+        while (numerosSet.size() < 24) {
+            int numero = random.nextInt(99) + 1;
+            numerosSet.add(numero);
+        }
+
+        return new ArrayList<>(numerosSet);
+    }
+
+    @Override
+    public String toString() {
+        return jogador + ": " + numeros.toString();
+    }
+}
