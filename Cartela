@@ -17,8 +17,15 @@ public class Cartela {
         return jogador;
     }
 
+    public void setJogador(String n){
+        n = jogador;
+    }
     public List<Integer> getNumeros() {
         return numeros;
+    }
+
+    public void setNumeros (List<Integer> n){
+        n = numeros;
     }
 
     public boolean contemNumero(int numero) {
@@ -42,3 +49,4 @@ public class Cartela {
         return jogador + ": " + numeros.toString();
     }
 }
+
