@@ -18,7 +18,7 @@ public class Cartela {
     }
 
     public void setJogador(String n){
-        n = jogador;
+        jogador = n;
     }
     public List<Integer> getNumeros() {
         return numeros;
