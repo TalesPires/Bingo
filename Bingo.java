@@ -15,18 +15,17 @@ public class Bingo {
     public boolean incluirCartela(Cartela cartela) {
         // Verificar se o jogador já possui uma cartela igual
         for (Cartela c : cartelas) {
-            if (c.getJogador().equals(cartela.getJogador()) && c.getNumeros().equals(cartela.getNumeros())) {
+            if (c.getJogador().equalsIgnoreCase(cartela.getJogador()) || c.getNumeros().equals(cartela.getNumeros())) {
                 return false;
             }
         }
-        
         cartelas.add(cartela);
         return true;
     }
 
     public boolean alterarNomeJogador(String jogadorAntigo, String novoNome) {
         for (Cartela cartela : cartelas) {
-            if (cartela.getJogador().equals(jogadorAntigo)) {
+            if (cartela.getJogador().equalsIgnoreCase(jogadorAntigo)) {
                 cartela.setJogador(novoNome);
                 return true;
             }
