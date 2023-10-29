@@ -3,6 +3,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.Collections;
 
 public class Cartela {
     private String jogador;
@@ -25,7 +26,7 @@ public class Cartela {
     }
 
     public void setNumeros (List<Integer> n){
-        n = numeros;
+        numeros = n;
     }
 
     public boolean contemNumero(int numero) {
@@ -46,7 +47,7 @@ public class Cartela {
 
     @Override
     public String toString() {
+        Collections.sort(numeros);
         return jogador + ": " + numeros.toString();
     }
 }
-
