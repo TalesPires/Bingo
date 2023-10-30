@@ -25,7 +25,7 @@ public class JogoBingo {
             System.out.println("8. Sair");
             System.out.println("Escolha uma opção: \n");
             int opcao = scanner.nextInt();
-            scanner.nextLine(); // Limpa a quebra de linha
+            scanner.nextLine(); 
 
             switch (opcao) {
                 case 1:
@@ -33,7 +33,6 @@ public class JogoBingo {
                         System.out.println("\nNão é possível adicionar uma cartela após o inicio do sorteio " +
                         "somente a alteração de nome de uma carteira já existente é possível\n");
                     }else{   
-                    // Incluir Cartela
                     System.out.print("Nome do Jogador: ");
                     String nome = scanner.nextLine();
                     Cartela cartela = new Cartela(nome);
@@ -45,7 +44,6 @@ public class JogoBingo {
                     }
                     break;
                 case 2:
-                    // Alterar Nome do Jogador
                     System.out.print("Nome do Jogador a ser alterado: ");
                     String jogadorAntigo = scanner.nextLine();
                     System.out.print("Novo Nome do Jogador: ");
@@ -57,9 +55,8 @@ public class JogoBingo {
                     }
                     break;
                 case 3:
-                    // Excluir Cartela
                     if(numerosSorteados.size() > 0){
-                        System.out.println("\nNão é possível adicionar uma cartela após o inicio do sorteio " +
+                        System.out.println("\nNão é possível remover uma cartela após o inicio do sorteio " +
                         "somente a alteração de nome de uma carteira já existente é possível\n");
                     }else{ 
                     
@@ -73,14 +70,12 @@ public class JogoBingo {
                     }
                     break;
                 case 4:
-                    // Reinicializar Bingo
                     bingo.reinicializarBingo();
                     numerosSorteados.clear();
                     vencedores.clear();
                     System.out.println("Bingo reinicializado.");
                     break;
                 case 5:
-                    // Sortear Próximo Número
                     if (numerosSorteados.size() < 99) {
                         int numeroSorteado;
                         do {
@@ -92,7 +87,6 @@ public class JogoBingo {
                         if (!jogadoresComNumeroSorteado.isEmpty()) {
                             System.out.println("Número sorteado: " + numeroSorteado);
                             System.out.println("Jogador(es) com este número: " + jogadoresComNumeroSorteado);   
-                            // Verificar se há vencedores
                             for (String jogador : jogadoresComNumeroSorteado) {
                                 if (!vencedores.contains(jogador) && bingo.verificarVencedor(jogador)) {
                                     vencedores.add(jogador);
@@ -122,7 +116,6 @@ public class JogoBingo {
                     break;
                 case 6:
                     while(vencedores.isEmpty()) {
-                        // Sortear Próximo Número
                         if (numerosSorteados.size() < 99) {
                             int numeroSorteado;
                             do {
@@ -134,7 +127,6 @@ public class JogoBingo {
                             if (!jogadoresComNumeroSorteado.isEmpty()) {
                                 System.out.println("Número sorteado: " + numeroSorteado);
                                 System.out.println("Jogador(es) com este número: " + jogadoresComNumeroSorteado);   
-                                // Verificar se há vencedores
                                 for (String jogador : jogadoresComNumeroSorteado) {
                                     if (!vencedores.contains(jogador) && bingo.verificarVencedor(jogador)) {
                                         vencedores.add(jogador);
@@ -170,7 +162,7 @@ public class JogoBingo {
                     System.out.println("5. Números Não Sorteados por Jogador (em ordem decrescente)");
                     System.out.print("Escolha uma opção de consulta: \n");
                     int opcaoConsulta = scanner.nextInt();
-                    scanner.nextLine(); // Limpa a quebra de linha
+                    scanner.nextLine(); 
     
                     switch (opcaoConsulta) {
                         case 1:
@@ -194,7 +186,6 @@ public class JogoBingo {
                         }
                         break;
                 case 8:
-                    // Sair
                     scanner.close();
                     System.exit(0);
                 default:

@@ -13,7 +13,6 @@ public class Bingo {
     }
 
     public boolean incluirCartela(Cartela cartela) {
-        // Verificar se o jogador já possui uma cartela igual
         for (Cartela c : cartelas) {
             if (c.getJogador().equalsIgnoreCase(cartela.getJogador()) || c.getNumeros().equals(cartela.getNumeros())) {
                 return false;
@@ -118,7 +117,6 @@ public class Bingo {
                 List<Integer> numerosCartela = cartela.getNumeros();
                 boolean venceu = true;
 
-                // Verificar se todos os números da cartela foram sorteados
                 for (int numero : numerosCartela) {
                     if (!numerosSorteados.contains(numero)) {
                         venceu = false;
